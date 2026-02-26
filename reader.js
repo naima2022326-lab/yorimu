@@ -1,21 +1,8 @@
-function openReader() {
-  document.getElementById("browserFrame").style.display = "none";
-  document.getElementById("reader").style.display = "block";
+function openReader(manga) {
+  content.innerHTML = `
+    <h2>${manga.title}</h2>
+    <div class="card">Chapter 1 (Demo)</div>
+    <div class="card">Chapter 2 (Demo)</div>
+    <p style="opacity:.6;">Reader logic coming next</p>
+  `;
 }
-
-document.getElementById("searchManga").addEventListener("keydown", e => {
-  if (e.key === "Enter") {
-    const q = e.target.value;
-    const src = sources[sourceSelect.value];
-    const url = src.search(q);
-
-    const res = document.createElement("div");
-    res.textContent = "Open: " + q;
-    res.onclick = () => {
-      document.getElementById("browserFrame").src = url;
-      openBrowser();
-    };
-
-    document.getElementById("results").appendChild(res);
-  }
-});
