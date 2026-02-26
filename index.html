@@ -4,36 +4,34 @@
   <meta charset="UTF-8" />
   <title>YORIMU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <canvas id="stars"></canvas>
 
-<header class="topbar">
-  <span class="logo">夜リム</span>
-  <input id="urlBar" placeholder="Search or enter URL" />
-  <button onclick="go()">GO</button>
-</header>
+<div class="app">
 
-<nav class="modes">
-  <button onclick="openBrowser()">🌐 Browser</button>
-  <button onclick="openReader()">📖 Reader</button>
-</nav>
+  <!-- SIDEBAR (LIKE TACHIYOMI) -->
+  <aside class="sidebar">
+    <h1>夜リム</h1>
+    <button onclick="showLibrary()">📚 Library</button>
+    <button onclick="showBrowse()">🧭 Browse</button>
+    <button onclick="showSettings()">⚙️ Settings</button>
+  </aside>
 
-<main id="app">
-  <iframe id="browserFrame"></iframe>
+  <!-- MAIN CONTENT -->
+  <main id="content">
+    <!-- Pages injected by JS -->
+  </main>
 
-  <section id="reader">
-    <select id="sourceSelect"></select>
-    <input id="searchManga" placeholder="Search manga..." />
-    <div id="results"></div>
-  </section>
-</main>
+</div>
 
 <script src="stars.js"></script>
-<script src="browser.js"></script>
 <script src="sources.js"></script>
+<script src="library.js"></script>
 <script src="reader.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
