@@ -1,19 +1,16 @@
 :root {
   --bg: #05000a;
-  --card: rgba(30, 10, 60, 0.6);
+  --card: rgba(40, 10, 80, 0.55);
   --purple: #9b5cff;
-  --border: rgba(155, 92, 255, 0.4);
+  --border: rgba(155, 92, 255, 0.35);
   --text: #ffffff;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
-  background: var(--bg);
+  margin: 0;
+  background: radial-gradient(circle at top, #12002a, #05000a);
   color: var(--text);
   font-family: system-ui, sans-serif;
   height: 100vh;
@@ -35,97 +32,26 @@ body {
 
 /* SIDEBAR */
 .sidebar {
-  width: 220px;
+  width: 230px;
   background: var(--card);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
   border-right: 1px solid var(--border);
-  padding: 15px;
-}
-
-.sidebar h1 {
-  color: var(--purple);
-  margin-bottom: 20px;
+  padding: 14px;
 }
 
 .sidebar button {
   width: 100%;
+  padding: 12px;
   margin-bottom: 10px;
-  padding: 10px;
   background: transparent;
   border: 1px solid var(--border);
   color: white;
   cursor: pointer;
+  transition: all .2s;
 }
 
-/* CONTENT */
-main {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;
-}
-
-/* CARDS */
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  padding: 15px;
-  margin-bottom: 12px;
-  cursor: pointer;
-}
-
-/* LOCK SCREEN */
-#lockScreen {
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 0, 10, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.lockBox {
-  text-align: center;
-  background: rgba(40, 10, 80, 0.4);
-  padding: 40px;
-  border: 1px solid var(--border);
-  backdrop-filter: blur(12px);
-}
-
-.lockBox input {
-  margin-top: 15px;
-  padding: 10px;
-  width: 220px;
-  background: black;
-  border: 1px solid var(--border);
-  color: white;
-}
-
-.lockBox button {
-  margin-top: 10px;
-  padding: 8px 20px;
-  background: transparent;
-  border: 1px solid var(--border);
-  color: white;
-  cursor: pointer;
-}
-
-.lockBox p {
-  margin-top: 10px;
-  color: #ff6b6b;
-}
-
-/* FLOATING ANIMATION */
-.float {
-  animation: float 3s ease-in-out infinite;
-  color: var(--purple);
-  font-size: 48px;
-}
-
-@keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
-  100% { transform: translateY(0); }
+.sidebar button:hover {
+  background: rgba(155,92,255,.15);
 }
 
 /* TOP BAR */
@@ -151,6 +77,73 @@ main {
   padding: 8px;
 }
 
-.hidden {
-  display: none;
+/* CONTENT */
+main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
 }
+
+/* CARDS */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* LOCK SCREEN */
+#lockScreen {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 0, 10, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.lockBox {
+  text-align: center;
+  background: rgba(40, 10, 80, 0.5);
+  padding: 40px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.lockBox input {
+  margin-top: 15px;
+  padding: 10px;
+  width: 220px;
+  background: black;
+  border: 1px solid var(--border);
+  color: white;
+}
+
+.lockBox button {
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: white;
+  cursor: pointer;
+}
+
+.googleBtn {
+  opacity: .7;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+  color: var(--purple);
+  font-size: 48px;
+}
+
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
+.hidden { display: none; }
