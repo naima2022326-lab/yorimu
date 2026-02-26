@@ -2,18 +2,19 @@ const content = document.getElementById("content");
 
 function showLibrary() {
   content.innerHTML = `
-    <h2>Home</h2>
+    <div class="home">
+      <h1 class="home-title">YORIMU</h1>
 
-    <section class="section">
-      <h3>Library</h3>
-      <div class="grid" id="libraryGrid"></div>
-    </section>
-
-    <section class="section">
-      <h3>Discover</h3>
-      <div class="grid" id="discoverGrid"></div>
-    </section>
+      <div class="home-nav">
+        <button onclick="showLibraryPage()">📚 Library</button>
+        <button onclick="showRecommendations()">✨ Recommendations</button>
+        <button onclick="showHistory()">🕘 History</button>
+        <button onclick="showExtensions()">🧩 Extensions</button>
+        <button onclick="showSettings()">⚙️ Settings</button>
+      </div>
+    </div>
   `;
+}
 
   renderLibraryGrid();
   renderDiscover();
