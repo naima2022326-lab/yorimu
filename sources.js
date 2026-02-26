@@ -1,25 +1,30 @@
-const sources = [];
-
-function registerSource(source) {
-  sources.push(source);
-}
-
-registerSource({
-  id: "demo",
-  name: "Demo Source",
-  type: "manga",
-  search: q => `https://www.google.com/search?q=${q}+manga`
-});
-
-function searchManga(query) {
-  const results = document.getElementById("results");
-  results.innerHTML = "";
-
-  sources.forEach(src => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.textContent = `${query} (via ${src.name})`;
-    card.onclick = () => openManga(query, src);
-    results.appendChild(card);
-  });
-}
+const sources = [
+  {
+    id: "demo-manga",
+    name: "Demo Manga Source",
+    type: "manga",
+    search(query) {
+      return [
+        {
+          id: "demo1",
+          title: "Demo Manga",
+          cover: "https://via.placeholder.com/300x420",
+          chapters: 12
+        }
+      ];
+    },
+    chapters(mangaId) {
+      return Array.from({ length: 12 }, (_, i) => ({
+        id: i + 1,
+        title: `Chapter ${i + 1}`
+      }));
+    },
+    pages(chapterId) {
+      return [
+        "https://via.placeholder.com/900x1400",
+        "https://via.placeholder.com/900x1400",
+        "https://via.placeholder.com/900x1400"
+      ];
+    }
+  }
+];
