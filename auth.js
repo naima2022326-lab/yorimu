@@ -12,35 +12,32 @@ function checkPassword() {
   const error = document.getElementById("error");
 
   if (passwords.includes(input)) {
-    showScreen("lockScreen", "intro1");
+    transition("lockScreen", "intro1");
   } else {
     error.textContent = "Incorrect password";
   }
 }
 
-function showScreen(from, to) {
-  const current = document.getElementById(from);
-  const next = document.getElementById(to);
+function transition(from, to) {
+  const a = document.getElementById(from);
+  const b = document.getElementById(to);
 
-  current.classList.add("fade-out");
+  a.classList.add("fade-out");
 
   setTimeout(() => {
-    current.classList.add("hidden");
-    next.classList.remove("hidden");
-    next.classList.remove("fade-out");
+    a.classList.add("hidden");
+    b.classList.remove("hidden");
   }, 800);
 }
 
-function nextIntro(num) {
-  showScreen(`intro${num - 1}`, `intro${num}`);
+function nextIntro(n) {
+  transition(`intro${n - 1}`, `intro${n}`);
 }
 
 function enterApp() {
-  const last = document.getElementById("intro3");
-  last.classList.add("fade-out");
-
+  document.getElementById("intro3").classList.add("fade-out");
   setTimeout(() => {
-    last.classList.add("hidden");
+    document.getElementById("intro3").classList.add("hidden");
     document.getElementById("app").classList.remove("hidden");
   }, 800);
 }
