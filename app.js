@@ -1,18 +1,20 @@
 const content = document.getElementById("content");
 
-function showLibrary() { renderLibrary(); }
-
-function showBrowse() {
+function showLibrary() {
   content.innerHTML = `
-    <h2>Browse</h2>
-    <input id="searchInput" placeholder="Search..." />
-    <div id="results"></div>
+    <h2>Home</h2>
+
+    <section class="section">
+      <h3>Library</h3>
+      <div class="grid" id="libraryGrid"></div>
+    </section>
+
+    <section class="section">
+      <h3>Discover</h3>
+      <div class="grid" id="discoverGrid"></div>
+    </section>
   `;
-  searchInput.onkeydown = e => e.key === "Enter" && searchManga(e.target.value);
-}
 
-function showSettings() {
-  content.innerHTML = "<h2>Settings</h2><p>More coming soon</p>";
+  renderLibraryGrid();
+  renderDiscover();
 }
-
-showLibrary();
