@@ -1,10 +1,15 @@
-const sources = [
-  {
-    id: "demo",
-    name: "Demo Source",
-    search: q => `https://www.google.com/search?q=${q}+manga+read`
-  }
-];
+const sources = [];
+
+function registerSource(source) {
+  sources.push(source);
+}
+
+registerSource({
+  id: "demo",
+  name: "Demo Source",
+  type: "manga",
+  search: q => `https://www.google.com/search?q=${q}+manga`
+});
 
 function searchManga(query) {
   const results = document.getElementById("results");
