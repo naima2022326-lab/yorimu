@@ -1,19 +1,23 @@
-const passwords = ["flamnigo","hamster","hams","flams","nasra","muna"];
-
-function unlock() {
-  document.getElementById("lockScreen").style.opacity = "0";
-  setTimeout(() => {
-    document.getElementById("lockScreen").style.display = "none";
-    document.getElementById("app").classList.remove("hidden");
-  }, 500);
-}
+const passwords = [
+  "flamnigo",
+  "hamster",
+  "hams",
+  "flams",
+  "nasra",
+  "muna"
+];
 
 function checkPassword() {
-  const input = passwordInput.value.toLowerCase();
-  if (passwords.includes(input)) unlock();
-  else error.textContent = "Incorrect password";
-}
+  const input = document.getElementById("passwordInput").value.toLowerCase();
+  const error = document.getElementById("error");
 
-function googleLogin() {
-  alert("Google OAuth ready. Add your API key in Google Cloud Console.");
+  if (passwords.includes(input)) {
+    document.getElementById("lockScreen").style.opacity = "0";
+    setTimeout(() => {
+      document.getElementById("lockScreen").style.display = "none";
+      document.getElementById("app").classList.remove("hidden");
+    }, 400);
+  } else {
+    error.textContent = "Incorrect password";
+  }
 }
