@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>YORIMU</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<header class="topbar">
+  <span class="logo">夜リム</span>
+  <input id="urlBar" placeholder="Search or enter URL" />
+  <button onclick="go()">GO</button>
+</header>
+
+<nav class="modes">
+  <button onclick="openBrowser()">🌐 Browser</button>
+  <button onclick="openReader()">📖 Reader</button>
+</nav>
+
+<main id="app">
+  <iframe id="browserFrame"></iframe>
+
+  <section id="reader">
+    <select id="sourceSelect"></select>
+    <input id="searchManga" placeholder="Search manga..." />
+    <div id="results"></div>
+  </section>
+</main>
+
+<script src="stars.js"></script>
+<script src="browser.js"></script>
+<script src="sources.js"></script>
+<script src="reader.js"></script>
+</body>
+</html>
