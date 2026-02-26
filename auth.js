@@ -8,28 +8,39 @@ const passwords = [
 ];
 
 function checkPassword() {
-  const input = passwordInput.value.toLowerCase();
+  const input = document.getElementById("passwordInput").value.toLowerCase();
+  const error = document.getElementById("error");
+
   if (passwords.includes(input)) {
-    fadeOut("lockScreen", "intro1");
+    showScreen("lockScreen", "intro1");
   } else {
     error.textContent = "Incorrect password";
   }
 }
 
-function fadeOut(current, next) {
-  const c = document.getElementById(current);
-  c.style.opacity = "0";
+function showScreen(from, to) {
+  const current = document.getElementById(from);
+  const next = document.getElementById(to);
+
+  current.classList.add("fade-out");
+
   setTimeout(() => {
-    c.classList.add("hidden");
-    document.getElementById(next).classList.remove("hidden");
-  }, 600);
+    current.classList.add("hidden");
+    next.classList.remove("hidden");
+    next.classList.remove("fade-out");
+  }, 800);
 }
 
-function nextIntro(n) {
-  fadeOut(`intro${n-1}`, `intro${n}`);
+function nextIntro(num) {
+  showScreen(`intro${num - 1}`, `intro${num}`);
 }
 
 function enterApp() {
-  document.getElementById("intro3").classList.add("hidden");
-  document.getElementById("app").classList.remove("hidden");
+  const last = document.getElementById("intro3");
+  last.classList.add("fade-out");
+
+  setTimeout(() => {
+    last.classList.add("hidden");
+    document.getElementById("app").classList.remove("hidden");
+  }, 800);
 }
