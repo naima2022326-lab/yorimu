@@ -53,3 +53,22 @@ async function searchAll(query) {
     results.appendChild(card);
   });
 }
+
+function showLibraryPage() {
+  content.innerHTML = "<h2>Library</h2>";
+  renderLibrary();
+}
+
+function showRecommendations() {
+  content.innerHTML = `
+    <h2>Recommendations</h2>
+    <p>Coming soon ✨</p>
+  `;
+}
+
+function showHistory() {
+  content.innerHTML = `
+    <h2>History</h2>
+    <p>No history yet.</p>
+  `;
+}
