@@ -41,3 +41,10 @@ function enterApp() {
     document.getElementById("app").classList.remove("hidden");
   }, 800);
 }
+
+// ENTER KEY = CLICK ENTER BUTTON
+document.addEventListener("keydown", e => {
+  if (e.key === "Enter" && !document.getElementById("lockScreen").classList.contains("hidden")) {
+    checkPassword();
+  }
+});
