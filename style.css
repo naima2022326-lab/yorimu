@@ -249,3 +249,37 @@ main {
     opacity: 0.7;
   }
 }
+
+/* PASSWORD INPUT – GLASS + MONO FONT */
+#passwordInput {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(185, 140, 255, 0.45);
+  backdrop-filter: blur(10px);
+  color: #e9ddff;
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  padding: 14px 18px;
+  width: 280px;
+  border-radius: 12px;
+  outline: none;
+}
+
+/* ENTER BUTTON – BIG + TRANSPARENT */
+.enter-btn {
+  margin-top: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(185, 140, 255, 0.45);
+  backdrop-filter: blur(10px);
+  color: #d9c6ff;
+  font-family: "Courier New", monospace;
+  font-size: 1.3rem;
+  padding: 14px 44px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.enter-btn:hover {
+  transform: scale(1.06);
+  color: #ffffff;
+}
