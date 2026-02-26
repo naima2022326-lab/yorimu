@@ -283,3 +283,19 @@ main {
   transform: scale(1.06);
   color: #ffffff;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.reader img {
+  width: 100%;
+  margin-bottom: 12px;
+}
