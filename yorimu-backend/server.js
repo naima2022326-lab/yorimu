@@ -1,27 +1,18 @@
-import express from "express";
-import demoSource from "./sources/demoSource.js";
-
-const app = express();
-const PORT = 3000;
-
+import mangadex from "./sources/mangadex.js";
 app.get("/api/search", async (req, res) => {
   const q = req.query.q;
-  const results = await demoSource.search(q);
+  const results = await mangadex.search(q);
   res.json(results);
 });
 
 app.get("/api/manga", async (req, res) => {
   const id = req.query.id;
-  const manga = await demoSource.manga(id);
+  const manga = await mangadex.manga(id);
   res.json(manga);
 });
 
 app.get("/api/pages", async (req, res) => {
   const id = req.query.id;
-  const pages = await demoSource.pages(id);
+  const pages = await mangadex.pages(id);
   res.json(pages);
-});
-
-app.listen(PORT, () => {
-  console.log("Yorimu backend running on port", PORT);
 });
