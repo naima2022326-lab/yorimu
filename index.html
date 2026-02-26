@@ -4,16 +4,23 @@
   <meta charset="UTF-8" />
   <title>YORIMU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
 <canvas id="stars"></canvas>
 
-<div class="app">
+<!-- 🔒 LOCK SCREEN -->
+<div id="lock-screen">
+  <h1 id="yorimu-logo">夜リム</h1>
+  <input id="passwordInput" type="password" placeholder="Enter password" />
+  <button onclick="unlock()">UNLOCK</button>
+  <p id="error"></p>
+</div>
 
-  <!-- SIDEBAR (LIKE TACHIYOMI) -->
+<!-- 🟣 MAIN APP -->
+<div class="app hidden" id="app">
+
   <aside class="sidebar">
     <h1>夜リム</h1>
     <button onclick="showLibrary()">📚 Library</button>
@@ -21,10 +28,7 @@
     <button onclick="showSettings()">⚙️ Settings</button>
   </aside>
 
-  <!-- MAIN CONTENT -->
-  <main id="content">
-    <!-- Pages injected by JS -->
-  </main>
+  <main id="content"></main>
 
 </div>
 
