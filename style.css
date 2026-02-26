@@ -169,3 +169,32 @@ main {
   margin-bottom: 12px;
   cursor: pointer;
 }
+
+/* IMMERSION SCREENS */
+.screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #12001f, #05000a);
+  text-align: center;
+}
+
+.center-text {
+  font-size: 22px;
+  color: #cbb8ff;
+  letter-spacing: 1px;
+}
+
+.arrow {
+  font-size: 80px;
+  color: #b98cff;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
