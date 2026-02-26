@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>YORIMU</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,6 +16,10 @@
     <h1 class="float">夜リム</h1>
     <input id="passwordInput" placeholder="Enter password" />
     <button onclick="checkPassword()">Unlock</button>
+
+    <!-- Google Sign-In placeholder -->
+    <button class="googleBtn" onclick="googleLogin()">Sign in with Google</button>
+
     <p id="error"></p>
   </div>
 </div>
@@ -24,15 +27,15 @@
 <!-- 🟣 MAIN APP -->
 <div class="app hidden" id="app">
 
-  <!-- TOP BAR -->
   <header class="topbar">
     <span class="kanji">夜リム</span>
-    <input class="searchBar" placeholder="Search manga..." />
+    <input class="searchBar" placeholder="Search manga / anime..." />
   </header>
 
   <aside class="sidebar">
     <button onclick="showLibrary()">📚 Library</button>
     <button onclick="showBrowse()">🧭 Browse</button>
+    <button onclick="showExtensions()">🧩 Extensions</button>
     <button onclick="showSettings()">⚙️ Settings</button>
   </aside>
 
@@ -41,6 +44,7 @@
 
 <script src="stars.js"></script>
 <script src="auth.js"></script>
+<script src="extensions.js"></script>
 <script src="sources.js"></script>
 <script src="library.js"></script>
 <script src="reader.js"></script>
