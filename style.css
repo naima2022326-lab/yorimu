@@ -299,3 +299,55 @@ main {
   width: 100%;
   margin-bottom: 12px;
 }
+
+/* 🌌 APP POLISH – MATCH PASSWORD VIBE */
+.app {
+  animation: appFadeIn 1.2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes appFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* TOP BAR – GLASS */
+.topbar {
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 30px rgba(155, 92, 255, 0.15);
+}
+
+/* SIDEBAR – GLASS */
+.sidebar {
+  backdrop-filter: blur(14px);
+  box-shadow: inset -1px 0 0 rgba(155, 92, 255, 0.25);
+}
+
+/* MAIN CONTENT – FLOATING */
+main {
+  backdrop-filter: blur(8px);
+}
+
+/* CARDS – SOFTER + GLOW */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 0 35px rgba(155, 92, 255, 0.35);
+}
+
+/* READER – CENTERED IMMERSION */
+.reader {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* GRID HEADINGS */
+.section h3 {
+  color: #d8c7ff;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
