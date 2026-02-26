@@ -1,23 +1,18 @@
 const content = document.getElementById("content");
 
-function showLibrary() {
-  renderLibrary();
-}
+function showLibrary() { renderLibrary(); }
 
 function showBrowse() {
   content.innerHTML = `
-    <h2>Browse Sources</h2>
-    <input id="searchInput" placeholder="Search manga..." />
+    <h2>Browse</h2>
+    <input id="searchInput" placeholder="Search..." />
     <div id="results"></div>
   `;
-
-  document.getElementById("searchInput").addEventListener("keydown", e => {
-    if (e.key === "Enter") searchManga(e.target.value);
-  });
+  searchInput.onkeydown = e => e.key === "Enter" && searchManga(e.target.value);
 }
 
 function showSettings() {
-  content.innerHTML = `<h2>Settings (coming soon)</h2>`;
+  content.innerHTML = "<h2>Settings</h2><p>More coming soon</p>";
 }
 
-showLibrary(); // default page
+showLibrary();
