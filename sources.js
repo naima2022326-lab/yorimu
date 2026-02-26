@@ -1,22 +1,20 @@
 const sources = [
   {
-    name: "Tachiyomi Style",
-    search: q => `https://www.google.com/search?q=${q}+manga`
-  },
-  {
-    name: "Mihon Style",
-    search: q => `https://www.google.com/search?q=${q}+read+online`
-  },
-  {
-    name: "Tachimanga Style",
-    search: q => `https://www.google.com/search?q=${q}+chapter`
+    id: "demo",
+    name: "Demo Source",
+    search: q => `https://www.google.com/search?q=${q}+manga+read`
   }
 ];
 
-const sourceSelect = document.getElementById("sourceSelect");
-sources.forEach((s, i) => {
-  const opt = document.createElement("option");
-  opt.value = i;
-  opt.textContent = s.name;
-  sourceSelect.appendChild(opt);
-});
+function searchManga(query) {
+  const results = document.getElementById("results");
+  results.innerHTML = "";
+
+  sources.forEach(src => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.textContent = `${query} (via ${src.name})`;
+    card.onclick = () => openManga(query, src);
+    results.appendChild(card);
+  });
+}
