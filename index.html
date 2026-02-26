@@ -12,15 +12,24 @@
 
 <!-- 🔐 LOCK SCREEN -->
 <div id="lockScreen">
-  <div class="lockBox">
-    <h1 class="float">夜リム</h1>
-    <input id="passwordInput" placeholder="Enter password" />
-    <button onclick="checkPassword()">Unlock</button>
+  <div class="lock-ui">
 
-    <!-- Google Sign-In placeholder -->
-    <button class="googleBtn" onclick="googleLogin()">Sign in with Google</button>
+    <h1 class="logo">YORIMU<span class="cursor">|</span></h1>
 
+    <div class="input-wrap">
+      <input
+        id="passwordInput"
+        type="password"
+        placeholder="Enter password..."
+        autocomplete="off"
+      />
+    </div>
+
+    <button class="enter-btn" onclick="checkPassword()">Enter</button>
+
+    <p class="hint">Hint: Animals or special names</p>
     <p id="error"></p>
+
   </div>
 </div>
 
@@ -29,13 +38,12 @@
 
   <header class="topbar">
     <span class="kanji">夜リム</span>
-    <input class="searchBar" placeholder="Search manga / anime..." />
+    <input class="searchBar" placeholder="Search manga..." />
   </header>
 
   <aside class="sidebar">
     <button onclick="showLibrary()">📚 Library</button>
     <button onclick="showBrowse()">🧭 Browse</button>
-    <button onclick="showExtensions()">🧩 Extensions</button>
     <button onclick="showSettings()">⚙️ Settings</button>
   </aside>
 
@@ -44,7 +52,6 @@
 
 <script src="stars.js"></script>
 <script src="auth.js"></script>
-<script src="extensions.js"></script>
 <script src="sources.js"></script>
 <script src="library.js"></script>
 <script src="reader.js"></script>
