@@ -10,32 +10,33 @@
 
 <canvas id="stars"></canvas>
 
-<!-- 🔐 LOCK SCREEN -->
-<div id="lockScreen">
-  <div class="lock-ui">
-
-    <h1 class="logo">YORIMU<span class="cursor">|</span></h1>
-
-    <div class="input-wrap">
-      <input
-        id="passwordInput"
-        type="password"
-        placeholder="Enter password..."
-        autocomplete="off"
-      />
-    </div>
-
-    <button class="enter-btn" onclick="checkPassword()">Enter</button>
-
-    <p class="hint">Hint: Animals or special names</p>
-    <p id="error"></p>
-
-  </div>
+<!-- 🔐 LOCK -->
+<div id="lockScreen" class="screen">
+  <h1 class="logo">YORIMU<span class="cursor">|</span></h1>
+  <input id="passwordInput" type="password" placeholder="Enter password..." />
+  <button class="enter-btn" onclick="checkPassword()">Enter</button>
+  <p class="hint">Hint: Animals or special names</p>
+  <p id="error"></p>
 </div>
 
-<!-- 🟣 MAIN APP -->
-<div class="app hidden" id="app">
+<!-- 🌌 IMMERSION 1 -->
+<div id="intro1" class="screen hidden" onclick="nextIntro(2)">
+  <p class="center-text">Get ready to start immersing yourselves</p>
+</div>
 
+<!-- ➡️ IMMERSION 2 -->
+<div id="intro2" class="screen hidden" onclick="nextIntro(3)">
+  <div class="arrow">→</div>
+  <p class="center-text">Click to continue</p>
+</div>
+
+<!-- ✨ IMMERSION 3 -->
+<div id="intro3" class="screen hidden" onclick="enterApp()">
+  <p class="center-text">Welcome to Your Manga Sanctuary</p>
+</div>
+
+<!-- 🟣 APP -->
+<div class="app hidden" id="app">
   <header class="topbar">
     <span class="kanji">夜リム</span>
     <input class="searchBar" placeholder="Search manga..." />
