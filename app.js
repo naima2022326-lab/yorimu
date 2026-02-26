@@ -31,21 +31,24 @@ function showBrowse() {
   });
 }
 
-function searchAll(query) {
+async function searchAll(query) {
   const results = document.getElementById("results");
+  results.innerHTML = "Searching...";
+
+  const res = await fetch(`http://localhost:3000/api/search?q=${encodeURIComponent(query)}`);
+  const data = await res.json();
+
   results.innerHTML = "";
 
-  sources.forEach(src => {
-    src.search(query).forEach(manga => {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.innerHTML = `
-        <img src="${manga.cover}" />
-        <h4>${manga.title}</h4>
-        <p>${manga.chapters} chapters</p>
-      `;
-      card.onclick = () => openManga(manga, src);
-      results.appendChild(card);
-    });
+  data.forEach(manga => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${manga.cover}">
+      <h4>${manga.title}</h4>
+      <p>${manga.chapters} chapters</p>
+    `;
+    card.onclick = () => openMangaFromApi(manga.id);
+    results.appendChild(card);
   });
 }
