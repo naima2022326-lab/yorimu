@@ -22,8 +22,14 @@ function showLibrary() {
 
 function showBrowse() {
   content.innerHTML = `
-    <h2>Browse Sources</h2>
-    <input id="searchInput" placeholder="Search manga or anime..." />
+    <h2>Search</h2>
+
+    <input
+      id="searchInput"
+      class="glass-input"
+      placeholder="Search manga..."
+    />
+
     <div class="grid" id="results"></div>
   `;
 
@@ -31,7 +37,6 @@ function showBrowse() {
     if (e.key === "Enter") searchAll(e.target.value);
   });
 }
-
 async function searchAll(query) {
   const results = document.getElementById("results");
   results.innerHTML = "Searching...";
