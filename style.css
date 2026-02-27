@@ -447,3 +447,8 @@ input[type="search"] {
   max-width: 420px;
   margin-bottom: 20px;
 }
+
+/* 🚫 HEADER SEARCH DISABLED (MOVED TO SEARCH PAGE) */
+.topbar .searchBar {
+  display: none;
+}
