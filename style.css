@@ -452,3 +452,46 @@ input[type="search"] {
 .topbar .searchBar {
   display: none;
 }
+
+body {
+  background:
+    radial-gradient(ellipse at top, rgba(120,80,255,0.08), transparent 60%),
+    #05060b;
+}
+
+.welcome-title {
+  text-shadow: 0 0 18px rgba(140,100,255,0.25);
+  animation: fadeUp 0.6s ease-out;
+} 
+
+.stat-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.01)
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    0 10px 30px rgba(0,0,0,0.4);
+}
+
+.stat-number {
+  color: #c9b7ff;
+}
+
+.quick-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.cta {
+  background: linear-gradient(
+    135deg,
+    rgba(120,80,255,0.25),
+    rgba(60,40,120,0.25)
+  );
+}
+
+.cta button {
+  box-shadow: 0 0 20px rgba(140,100,255,0.6);
+}
