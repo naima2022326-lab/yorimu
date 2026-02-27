@@ -2,8 +2,7 @@ import express from "express";
 import mangadex from "./sources/mangadex.js";
 
 const app = express();
-const PORT = 3000;
-
+const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get("/api/search", async (req, res) => {
