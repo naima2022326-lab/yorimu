@@ -495,3 +495,90 @@ body {
 .cta button {
   box-shadow: 0 0 20px rgba(140,100,255,0.6);
 }
+
+/* Cinematic background */
+body {
+  background:
+    radial-gradient(ellipse at top, rgba(120,80,255,0.08), transparent 60%),
+    radial-gradient(ellipse at bottom, rgba(80,120,255,0.04), transparent 60%),
+    #05060b;
+  color: #eaeaf0;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  background-image: url("/stars.png"); /* or existing stars asset */
+  opacity: 0.15;
+  animation: stars-drift 120s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes stars-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-500px); }
+}
+
+.page-content {
+  position: relative;
+  z-index: 1;
+  padding: 32px;
+}
+
+.welcome-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 18px rgba(140,100,255,0.25);
+}
+
+.welcome-subtitle {
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
+.stat-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.02)
+  );
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    0 12px 30px rgba(0,0,0,0.6);
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #cbbcff;
+}
+
+.quick-card {
+  border-radius: 18px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.quick-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+.cta-section {
+  background: linear-gradient(
+    135deg,
+    rgba(120,80,255,0.22),
+    rgba(60,40,120,0.22)
+  );
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 40px rgba(120,80,255,0.15);
+}
+
+.cta-section button {
+  box-shadow: 0 0 22px rgba(140,100,255,0.6);
+}
+
