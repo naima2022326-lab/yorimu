@@ -428,3 +428,22 @@ main {
   margin-left: 0;
   margin-top: 112px; /* nav + header */
 }
+
+/* ⌨️ GLASS INPUT – GLOBAL (PASSWORD STYLE) */
+.glass-input,
+.searchBar,
+input[type="text"],
+input[type="search"] {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(185, 140, 255, 0.45);
+  backdrop-filter: blur(10px);
+  color: #e9ddff;
+  font-family: "Courier New", monospace;
+  font-size: 1.1rem;
+  padding: 14px 18px;
+  border-radius: 12px;
+  outline: none;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 20px;
+}
