@@ -422,3 +422,9 @@ main {
   border: 1px solid rgba(185, 140, 255, 0.45);
   font-family: "Courier New", monospace;
 }
+
+/* PUSH CONTENT BELOW TOP NAV */
+main {
+  margin-left: 0;
+  margin-top: 112px; /* nav + header */
+}
