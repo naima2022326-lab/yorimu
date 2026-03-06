@@ -1,24 +1,27 @@
-let enabledSources = ["mangadex"];
+function searchManga(query) {
+  const results = document.getElementById("results");
+  results.innerHTML = "<p>Searching sources...</p>";
 
-async function loadSources() {
-  const response = await fetch("/sources/extensions");
-  const data = await response.json();
-
-  return data.filter(src => enabledSources.includes(src.id));
+  searchAllSources(query);
 }
 
-async function searchManga(query) {
+function renderResults(list) {
   const results = document.getElementById("results");
   results.innerHTML = "";
 
-  const sources = await loadSources();
-
-  sources.forEach(src => {
+  list.forEach(manga => {
     const card = document.createElement("div");
     card.className = "card";
-    card.textContent = `${query} (via ${src.name})`;
 
-    card.onclick = () => openManga(query, src);
+    card.innerHTML = `
+      <img src="${manga.cover}" class="cover">
+      <div>
+        <h3>${manga.title}</h3>
+        <p>${manga.source}</p>
+      </div>
+    `;
+
+    card.onclick = () => openReader(manga);
 
     results.appendChild(card);
   });
