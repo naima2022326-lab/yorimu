@@ -1,29 +1,20 @@
-import mangadex from "./mangadex.js";
-import gogoanime from "./gogoanime.js";
+const extensions = [];
 
-export const extensions = [
-  mangadex,
-  gogoanime
-];
-
-export function getEnabledExtensions() {
-  const saved = JSON.parse(localStorage.getItem("yorimuExtensions") || "[]");
-
-  if (saved.length === 0) {
-    return extensions;
-  }
-
-  return extensions.filter(ext => saved.includes(ext.id));
+function registerExtension(ext) {
+  extensions.push(ext);
 }
 
-export function toggleExtension(id) {
-  let saved = JSON.parse(localStorage.getItem("yorimuExtensions") || "[]");
+function getEnabledExtensions() {
+  return extensions.filter(e => e.enabled !== false);
+}
 
-  if (saved.includes(id)) {
-    saved = saved.filter(e => e !== id);
-  } else {
-    saved.push(id);
-  }
+function searchAllSources(query) {
+  const results = [];
 
-  localStorage.setItem("yorimuExtensions", JSON.stringify(saved));
+  getEnabledExtensions().forEach(ext => {
+    ext.search(query).then(res => {
+      results.push(...res);
+      renderResults(results);
+    });
+  });
 }
