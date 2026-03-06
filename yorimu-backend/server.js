@@ -38,3 +38,10 @@ app.get("/api/pages", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Yorimu backend running on http://localhost:${PORT}`);
 });
+
+app.get("/sources/extensions", (req, res) => {
+  res.json([
+    { id: "mangadex", name: "MangaDex" },
+    { id: "demo", name: "Demo Source" }
+  ]);
+});
