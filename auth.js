@@ -1,9 +1,10 @@
 const passwords = [
-  "flamnigo",
+  "flamingo",
   "hamster",
   "hams",
   "flams",
   "nasra",
+  "hamsa",
   "muna"
 ];
 
