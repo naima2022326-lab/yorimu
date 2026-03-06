@@ -45,3 +45,36 @@ app.get("/sources/extensions", (req, res) => {
     { id: "demo", name: "Demo Source" }
   ]);
 });
+
+const express = require("express")
+const cors = require("cors")
+
+const mangadex = require("./sources/mangadex")
+
+const app = express()
+app.use(cors())
+
+
+// SEARCH
+app.get("/api/search", async (req,res)=>{
+  const results = await mangadex.searchManga(req.query.q)
+  res.json(results)
+})
+
+
+// CHAPTER LIST
+app.get("/api/chapters/:id", async (req,res)=>{
+  const chapters = await mangadex.getChapters(req.params.id)
+  res.json(chapters)
+})
+
+
+// CHAPTER PAGES
+app.get("/api/pages/:id", async (req,res)=>{
+  const pages = await mangadex.getPages(req.params.id)
+  res.json(pages)
+})
+
+app.listen(3000, ()=>{
+  console.log("Yorimu backend running")
+})
