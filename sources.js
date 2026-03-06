@@ -1,30 +1,25 @@
-const sources = [
-  {
-    id: "demo-manga",
-    name: "Demo Manga Source",
-    type: "manga",
-    search(query) {
-      return [
-        {
-          id: "demo1",
-          title: "Demo Manga",
-          cover: "https://via.placeholder.com/300x420",
-          chapters: 12
-        }
-      ];
-    },
-    chapters(mangaId) {
-      return Array.from({ length: 12 }, (_, i) => ({
-        id: i + 1,
-        title: `Chapter ${i + 1}`
-      }));
-    },
-    pages(chapterId) {
-      return [
-        "https://via.placeholder.com/900x1400",
-        "https://via.placeholder.com/900x1400",
-        "https://via.placeholder.com/900x1400"
-      ];
-    }
-  }
-];
+let enabledSources = ["mangadex"];
+
+async function loadSources() {
+  const response = await fetch("/sources/extensions");
+  const data = await response.json();
+
+  return data.filter(src => enabledSources.includes(src.id));
+}
+
+async function searchManga(query) {
+  const results = document.getElementById("results");
+  results.innerHTML = "";
+
+  const sources = await loadSources();
+
+  sources.forEach(src => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.textContent = `${query} (via ${src.name})`;
+
+    card.onclick = () => openManga(query, src);
+
+    results.appendChild(card);
+  });
+}
